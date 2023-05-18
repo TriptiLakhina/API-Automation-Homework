@@ -37,7 +37,7 @@ public class Blogs {
         Response response = given()
                 .basePath("todos")
                 .when()
-                .get("4")
+                .get()
                 .then()
                 .extract()
                 .response();
@@ -47,7 +47,7 @@ public class Blogs {
         // Assert to verify the request is successful by checking the status code
         Assert.assertEquals(response.getStatusCode(),200);
         // Assert to verify id 4 is completed
-        Assert.assertEquals(response.jsonPath().getString("completed"),"true");
+        Assert.assertEquals(response.jsonPath().getString("[3].completed"),"true");
     }
 
     @Test
